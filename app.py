@@ -26,29 +26,45 @@ st.markdown("""
         color: #333333;
         font-weight: bold;
         border-radius: 10px;
-        padding: 0.8em 1.5em; /* Larger padding for touch targets */
-        margin: 0.5em 0; /* Vertical spacing for stacked buttons */
-        width: 100%; /* Full width for mobile */
+        padding: 0.8em 1.5em;
+        margin: 0.5em 0;
+        width: 100%;
         display: block;
     }
     .stTextInput>div>div>input {
         background-color: white;
         color: #333333;
-        border-radius: 10px;
+        border-radius: 5px;
         padding: 0.6em;
-        font-size: 1.2em; /* Larger input text */
+        font-size: 1.0em;
     }
     .stTextInput label {
         color: #333333;
-        font-size: 1.3em; /* Match content font size */
+        font-size: 1.3em;
     }
     .stMarkdown, .stCaption {
         color: #333333;
-        font-size: 1.3em; /* Larger content and hint text */
+        font-size: 1.3em;
+    }
+    .stCaption {
+        color: #333333 !important;
+        font-style: italic;
+        font-size: 1.2em !important;
+    }
+    /* Additional selectors to ensure hint text is dark */
+    .stCaption *, div[data-testid="stCaption"], div[data-testid="stCaption"] * {
+        color: #333333 !important;
+    }
+    .stAlert[data-testid="stAlert-success"] {
+        background-color: #e0ffe0 !important;
+        color: #0a4d0a !important;
+        border: 2px solid #b3ffb3;
+        font-size: 1.1em;
+        font-weight: 500;
     }
     h1 {
         text-align: center;
-        font-size: 2.5em !important; /* Larger title */
+        font-size: 2.5em !important;
         color: #333333;
     }
     </style>
@@ -70,16 +86,16 @@ steps = [
         "content": "Happy Birthday, baby. I love you so much. I told you this weekend would be full of surprises — but today, you’ll have to uncover them yourself.",
         "input_prompt": "We are going to ______ Island. Think of where we spent almost an hour waiting for a butterfly to land on you.",
         "hint": "Hint: He was a president.",
-        "answer": "roosevelt island",
+        "answer": "roosevelt",
         "success_message": "Surprise! We’re going to Roosevelt Island — for a scavenger hunt. If you can solve all the clues, you’ll unlock a special surprise."
     },
     {
         "title": "Step #2",
         "content": "Think of where the nerds go. The place for people who would say 'Erm actually 🤓...'",
-        "input_prompt": "Where do the nerds go? Enter the name of the place.",
-        "hint": "Hint: One of the Ivies.",
+        "input_prompt": "Where do the nerds go? Take a picture at the place.",
+        "hint": "Hint: At one of the Ivies.",
         "answer": "picture taken",
-        "success_message": "Nice! On to the next challenge."
+        "success_message": "Beautiful picture! On to the next challenge."
     },
     {
         "title": "Step #3",
@@ -109,7 +125,7 @@ steps = [
         "title": "Step #6",
         "content": "We’ve got the blanket... but we’re missing something. Go buy food at the Roosevelt Island Farmers Market.",
         "button": "Food Bought",
-        "success_message": "Snacks secured. You're unstoppable."
+        "success_message": "Snacks secured."
     },
     {
         "title": "Step #7",
